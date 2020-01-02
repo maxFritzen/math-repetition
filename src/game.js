@@ -18,13 +18,13 @@ const getQuestionForAddition = (level = 10) => {
   }
 }
 
-const getQuestionForMultiplication = () => {
+const getQuestionForMultiplication = (table) => {
   // multiplicationtable
   // returnera object data med 'fråga' och 'svar'.
-  const a = getRandomInt(10)
+  const a = table
   const b = getRandomInt(10)
-  const answer = a + b
-  const question = `${a} + ${b}`
+  const answer = a * b
+  const question = `${a} * ${b}`
   return {
     answer,
     question
@@ -45,6 +45,8 @@ const Game = (props) => {
   const getQuestion = () => {
     if (props.type === ADDITION) {
       setQuestion(getQuestionForAddition(props.level))
+    } else if (props.type === MULTIPLICATION) {
+      setQuestion(getQuestionForMultiplication(props.level))
     }
   }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Game from './game';
 
 export const ADDITION = 'addition'
-export const MULTIPICATION = 'multiplication'
+export const MULTIPLICATION = 'multiplication'
 
 export const Start = () => {
   // klicka addition => visa nivåer (om inte visa från början)
@@ -33,15 +33,15 @@ export const Start = () => {
       <div>
         Multiplication
         <ul>
-          <li onClick={(() => handleOnClick('multi', 2))}>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 2))}>2</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 3))}>3</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 4))}>4</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 5))}>5</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 6))}>6</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 7))}>7</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 8))}>8</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 9))}>9</li>
+          <li onClick={(() => handleOnClick(MULTIPLICATION, 1))}>10</li>
         </ul>
       </div>
     </div> 

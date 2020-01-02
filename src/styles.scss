@@ -1,0 +1,40 @@
+// https://coolors.co/0a0908-22333b-eae0d5-c6ac8f-5e503f
+$color1: #0A0908;
+$color2: #22333B;
+$color3: #EAE0D5;
+$color4: #C6AC8F;
+$color5: #5E503F;
+
+body {
+  background: $color1;
+  color: $color3;
+  font-size: 67.5%;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  border:10px solid;
+  font-size: 1rem;
+}
+
+.header {
+  font-size: 2.4rem;
+}
+
+.home-link {
+  text-decoration: underline;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+ul {
+  width: 200px;
+}
+
+li {
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid;
+  margin: .5rem;
+}

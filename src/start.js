@@ -18,10 +18,11 @@ export const Start = () => {
     setLevel(level)
   }
   return (
-    <div>
+    <div className='container'>
+      <h1 className='header'>Math by repetition</h1>
       {route === 'home' ? (
       <div>
-      <h1>Math by repetition</h1>
+      
       <div>
         Addition
         <ul>
@@ -47,7 +48,9 @@ export const Start = () => {
     </div> 
     )
     : <div>
-        <div onClick={() => setRoute('home')}>Back home</div>
+        <div 
+        className='home-link' 
+        onClick={() => setRoute('home')}>Back home</div>
         <Game level={level} type={route} />
       </div>
     

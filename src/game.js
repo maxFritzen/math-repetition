@@ -123,15 +123,17 @@ const Game = (props) => {
   }
   console.log('question: ', question)
   return (
-  <div>
-    <div> {question && question.question} = {help && help}</div>
+  <div className='gameContainer'>
+    <div className='question'> {question && question.question} = {help && help}</div>
     <form type='' onSubmit={handleOnClick}>
-    <div> svar:<input type='number' value={inputValue} onChange={(e) => handleInput(e)} /></div>
-    <div>{ isAnswerCorrect 
-      ? <button className='button' type='submit'onClick={newQuestion}>Next</button>
-      : <button className='button' type='submit'onClick={handleOnClick}>Rätta</button>
-      }</div>
-    <div><button className='button' type='button' onClick={handleHelp}>Help</button></div>
+    <div><input type='number' value={inputValue} onChange={(e) => handleInput(e)} /></div>
+    <div>
+      <button className='button primary' type={isAnswerCorrect ? 'button' : 'submit'} onClick={handleOnClick}>Correct</button>
+      { isAnswerCorrect &&
+         <button className='button primary next' type='submit'onClick={newQuestion}>Next</button>
+      }
+      </div>
+    <div><button className='button help' type='button' onClick={handleHelp}>Help</button></div>
     </form>
   </div>
   )

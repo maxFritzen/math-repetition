@@ -58,3 +58,10 @@ li {
     grid-template-columns: 1fr;
   }
 }
+
+.button {
+  background: $color2;
+  color: $color3;
+  width: 5rem;
+  padding: .5rem;
+}

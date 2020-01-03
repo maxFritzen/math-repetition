@@ -80,6 +80,9 @@ const Game = (props) => {
       case DIVISION: 
         setQuestion(getQuestionForDivision(props.level))
         break;
+      default:
+        alert('something went wrong. Restart and contact developer to let the person know he messed up.')
+        break;
     }
     if (props.type === ADDITION) {
       setQuestion(getQuestionForAddition(props.level))
@@ -92,7 +95,9 @@ const Game = (props) => {
   const handleOnClick = (e) => {
     e.preventDefault()
     console.log('onclick', typeof inputValue, typeof question.answer)
-    if (question.answer === parseInt(inputValue)) {
+    console.log('onclick',  inputValue,  question.answer)
+    console.log('onclick',  parseFloat(inputValue, 10))
+    if (question.answer === parseFloat(inputValue, 10)) {
       console.log('correct')
       setIsAnswerCorrect(true)
       
@@ -123,10 +128,10 @@ const Game = (props) => {
     <form type='' onSubmit={handleOnClick}>
     <div> svar:<input type='number' value={inputValue} onChange={(e) => handleInput(e)} /></div>
     <div>{ isAnswerCorrect 
-      ? <button type='submit'onClick={newQuestion}>Next</button>
-      : <button type='submit'onClick={handleOnClick}>Rätta</button>
+      ? <button className='button' type='submit'onClick={newQuestion}>Next</button>
+      : <button className='button' type='submit'onClick={handleOnClick}>Rätta</button>
       }</div>
-    <div><button type='button' onClick={handleHelp}>Help</button></div>
+    <div><button className='button' type='button' onClick={handleHelp}>Help</button></div>
     </form>
   </div>
   )

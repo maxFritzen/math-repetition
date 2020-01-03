@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ADDITION, MULTIPLICATION } from './start'
+import { ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION } from './start'
 
 
 function getRandomInt(max) {
@@ -12,6 +12,18 @@ const getQuestionForAddition = (level = 10) => {
   const b = getRandomInt(level)
   const answer = a + b
   const question = `${a} + ${b}`
+  return {
+    answer,
+    question
+  }
+}
+
+const getQuestionForSubtraction = (level = 10) => {
+  // returnera object data med 'fråga' och 'svar'.
+  const a = getRandomInt(level)
+  const b = getRandomInt(a) // vill inte kunna få negativt resultat än.
+  const answer = a - b
+  const question = `${a} - ${b}`
   return {
     answer,
     question
@@ -31,6 +43,18 @@ const getQuestionForMultiplication = (table) => {
   }
 }
 
+const getQuestionForDivision = (table) => {
+  // returnera object data med 'fråga' och 'svar'.
+  const a = getRandomInt(10)
+  const b = table
+  const answer = a / b
+  const question = `${a} / ${b}`
+  return {
+    answer,
+    question
+  }
+}
+
 const Game = (props) => {
   const [ question, setQuestion ] = useState({})
   const [ inputValue, setInputValue ] = useState('')
@@ -43,6 +67,20 @@ const Game = (props) => {
   }, [])
 
   const getQuestion = () => {
+    switch (props.type) {
+      case ADDITION: 
+        setQuestion(getQuestionForAddition(props.level))
+        break;
+      case SUBTRACTION: 
+        setQuestion(getQuestionForSubtraction(props.level))
+        break;
+      case MULTIPLICATION: 
+        setQuestion(getQuestionForMultiplication(props.level))
+        break;
+      case DIVISION: 
+        setQuestion(getQuestionForDivision(props.level))
+        break;
+    }
     if (props.type === ADDITION) {
       setQuestion(getQuestionForAddition(props.level))
     } else if (props.type === MULTIPLICATION) {
